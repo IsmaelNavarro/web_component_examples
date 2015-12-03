@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Extends Component Example</title>
+</head>
+<body>
+	<h3>Extends Component Example</h3>
+	
+	<button is="hello-world-button"></button>
+	
+	<script>
+		var proto = Object.create(HTMLButtonElement.prototype);
+		proto.createdCallback = function() {
+			this.textContent = "Hello Button World!";
+			console.log("Element created!");
+		};
+		document.registerElement("hello-world-button", {
+			prototype : proto,
+			extends: "button"
+		});
+	</script>
+
+</body>
+</html>

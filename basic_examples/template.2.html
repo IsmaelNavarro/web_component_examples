@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Template example</title>
+</head>
+<body>
+	<h3>Template example</h3>
+
+	<template id="titletemplate">
+		<style>
+		h1{
+			color: red;
+		}
+		p{
+			background-color: #ddd;
+		}
+		</style>
+		<h1>Ciudades del mundo</h1>
+		<template id="citytemplate">
+			<p></p>
+		</template>
+	</template>
+
+	<script>
+		var cities = ["Madrid", "Barcelona", "Valencia"];
+
+		var template = document.querySelector("#titletemplate").content;
+		var p = document.querySelector("#titletemplate").content.querySelector("#citytemplate").content.querySelector("p");
+
+		cities.forEach(function(city) {
+			var newP = p.cloneNode(true);
+			newP.textContent = city;
+			template.appendChild(newP);
+		});
+
+		var clone = document.importNode(template, true);
+		document.body.appendChild(clone);
+	</script>
+
+</body>
+</html>

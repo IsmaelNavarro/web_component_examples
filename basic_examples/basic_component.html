@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic example of web component</title>
+</head>
+<body>
+	
+	<h3>Basic example of web component</h3>
+
+	<hellow-world> </hellow-world>
+	
+	<script>
+		var proto = Object.create(HTMLElement.prototype);
+		proto.createdCallback = function() {
+			console.log("Element created!");
+			this.textContent = "Hello World!";
+		};
+
+		document.registerElement("hellow-world", {
+			prototype: proto
+		});
+	</script>
+
+</body>
+</html>

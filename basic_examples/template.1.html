@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Template example</title>
+</head>
+<body>
+	<h3>Template example</h3>
+
+	<template>
+		<p>This is a template!</p>
+	</template>
+
+	<script>
+		var template = document.querySelector("template").content;
+		var clone = template.cloneNode(true);
+		document.body.appendChild(clone);
+	</script>
+
+</body>
+</html>
